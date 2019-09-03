@@ -1,0 +1,63 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Znak Hanzi:</strong>
+  <% @word.hanzis.each do |hanzi| %>
+    <%= hanzi.character %>
+  <% end %>
+</p>
+<p>
+  <strong>Znak tradycyjny Hanzi:</strong>
+  <% @word.hanzis.each do |hanzi| %>
+    <%= hanzi.traditional %>
+  <% end %>
+</p>
+
+<p>
+  <strong>Pisownia Pinyin:</strong>
+  <% @word.pinyins.each do |pinyin| %>
+    <span class="tone-<%= pinyin.tone %>"><%= pinyin.syllable %></span>
+  <% end %>
+</p>
+
+<p>
+  <strong>Tłumaczenie:</strong>
+  <%= @word.content %>
+</p>
+
+<p>
+  <strong>Przykład:</strong>
+  <% @word.examples.each do |example| %>
+  <table><tbody>
+    <tr>
+      <td>Chiński</td>
+      <td><%= example.chinese %></td>
+    </tr>
+    <tr>
+      <td>Zapis Pinyin</td>
+      <td><%= example.spelling %></td>
+    </tr>
+    <tr>
+      <td>Tłumaczenie polskie</td>
+      <td><%= example.polish %></td>
+    </tr>
+  </tbody></table>
+  <% end %>
+</p>
+
+<p>
+  <strong>Część mowy:</strong>
+  <%= Partofspeach.find(@word.pos_id).name %>
+</p>
+
+<p>
+  <% @word.hanzis.each do |hanzi| %>
+    <%= image_tag hanzi.avatar_url %>
+  <% end %>
+</p>
+
+<% if user_signed_in? %>
+  <%= link_to '<br /><i class="fa fa-chevron-left" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;&nbsp;'.html_safe, words_path %>
+  <%= link_to '<i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;&nbsp;'.html_safe, edit_word_path(@word) %>
+  <%= link_to '<i class="fa fa-trash-o" aria-hidden="true"></i>'.html_safe, @word, method: :delete, data: { confirm: 'Czy na pewno chcesz usunąć tłumaczenie?' } %>
+<% end %>  

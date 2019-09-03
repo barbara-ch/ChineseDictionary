@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<table>
+	<tbody>
+		<tr>
+			<td><strong>Chiński:</strong></td>
+			<td><%= @example.chinese %></td>
+		</tr>
+		<tr>
+			<td><strong>Zapis Pinyin:</strong></td>
+			<td><%= @example.spelling %></td>
+		</tr>
+
+		<tr>
+			<td><strong>Tłumaczenie polskie:</strong></td>
+			<td><%= @example.polish %></td>
+		</tr>
+	</tbody>
+</table>
+<div>
+	<%= link_to '<i class="fa fa-chevron-left" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;&nbsp;'.html_safe, examples_path %>
+	<%= link_to '<i class="fa fa-pencil-square-o" aria-hidden="true"></i>'.html_safe, edit_example_path(@example) %>
+	<%= link_to '<i class="fa fa-trash-o" aria-hidden="true"></i>'.html_safe, @example, method: :delete, data: { confirm: 'Czy na pewno chcesz usnunąć przykład?' } %>
+</div>

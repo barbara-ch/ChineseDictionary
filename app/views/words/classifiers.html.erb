@@ -1,0 +1,47 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Lista Klasyfikatorów</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Hanzi</th>
+      <th>Znak tradycyjny</th>
+      <th>Pinyin</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @words.each do |word| %>
+      <tr>
+        <td><% word.hanzis.each do |hanzi| %>
+              <%= link_to hanzi.character, hanzi %>
+            <% end %></td>
+        <td><% word.hanzis.each do |hanzi| %>
+              <%= hanzi.traditional %>
+            <% end %></td>
+        <td><% word.pinyins.each do |pinyin| %>
+              <span class="tone-<%= pinyin.tone %>"><%= pinyin.syllable %></span>
+            <% end %></td>
+        <td><%= link_to word.content, word %></td>
+        <td><%= Partofspeach.find(word.pos_id).name %></td>
+      </tr>
+      <tr> 
+        <td colspan="5" ><% word.hanzis.each do |hanzi| %>Kolejność stawiania kresek: 
+            <div style="width: 50%; height: auto; text-align: center;"><%= image_tag hanzi.avatar_url %></div>
+            <% end %></td>
+      </tr>
+      <tr> 
+        <% word.examples.each do |example| %>
+        <td colspan="2"><%= example.chinese %></td>
+        <td colspan="2"><%= example.spelling %></td>
+        <td colspan="2"><%= example.polish %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+  
+</table>
+
+<br>

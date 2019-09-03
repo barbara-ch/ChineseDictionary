@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+
+
+
+<p>
+  <strong>Sylaba:</strong>
+  <%= @pinyin.syllable %>
+</p>
+
+<p>
+  <strong>Zapis bez tonu:</strong>
+  <%= @pinyin.alternative %>
+</p>
+
+<p>
+  <strong>Zapis numeryczny tonu:</strong>
+  <%= @pinyin.tonespelling %>
+</p>
+
+<p>
+  <strong>Ton:</strong>
+  <%= @pinyin.tone %>
+</p>
+<% if user_signed_in? %>
+<%= link_to '<br /><i class="fa fa-chevron-left" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;&nbsp;'.html_safe, pinyins_path %>
+<%= link_to '<br /><i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;&nbsp;'.html_safe, edit_pinyin_path(@pinyin) %>
+<%= link_to '<i class="fa fa-trash-o" aria-hidden="true"></i>'.html_safe, @pinyin, method: :delete, data: { confirm: 'Czy na pewno chcesz usnunąć pinyin i wszystkie tłumaczenia go zawierające?' } %>
+<% end %>

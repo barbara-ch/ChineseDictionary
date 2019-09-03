@@ -1,0 +1,38 @@
+<p id="notice"><%= notice %></p>
+
+<table>
+	<thead>
+		<tr>
+			<th><strong>Znak Hanzi:</strong></th>
+			<th><strong>Ilość kresek:</strong></th>
+			<th><strong>Opis:</strong></th>
+			<th><strong>Znak tradycyjny:</strong></th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>
+  				<%= @hanzi.character %>
+  			</td>
+  			<td>
+				<%= @hanzi.stroke %>
+			</td>
+  			<td>
+				<%= @hanzi.description %>
+			</td>
+			<td>
+				<%= @hanzi.traditional %>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="4">
+				<%= image_tag @hanzi.avatar_url %>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<% if user_signed_in? %>
+	<%= link_to '<i class="fa fa-chevron-left" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;&nbsp;'.html_safe, hanzis_path %>
+	<%= link_to '<i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;&nbsp;'.html_safe, edit_hanzi_path(@hanzi) %>
+	<%= link_to '<i class="fa fa-trash-o" aria-hidden="true"></i>'.html_safe, @hanzi, method: :delete, data: { confirm: 'Czy na pewno chcesz usunąć znak i wszystkie powiązane z nim słowa?' } %>
+<% end %>

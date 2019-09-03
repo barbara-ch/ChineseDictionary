@@ -1,0 +1,34 @@
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+
+  <div class="field login-ic">
+    <i class="icon email fa fa-2x fa-envelope"></i>
+    <%= f.email_field :email, placeholder: "Email", autofocus: true, :required => 'required' %>
+    <div class="clear"> </div>
+  </div>
+
+  <div class="field login-ic">
+    <i class="icon fa fa-3x fa-lock"></i>
+    <%= f.password_field :password, placeholder: "Hasło", autofocus: "off", :required => 'required' %>
+    <div class="clear"> </div>
+  </div>
+
+  <% if devise_mapping.rememberable? -%>
+    <div class="field remeber-me">
+      <%= f.check_box :remember_me %>
+      <%= f.label :remember_me, "<span></span>Zapamiętaj mnie".html_safe %>
+    </div>
+  <% end -%>
+
+  <div class="login-button">
+    <%= f.submit "Login" %>
+  </div>
+<% end %>
+<div class="center">
+  <%= render "devise/shared/links" %>
+</div>
+<!--         <div class="remeber-me">
+          <input type="checkbox" id="brand" value="">
+          <label for="brand"><span></span> Remember me?</label>
+          <a href="#">Forgot password?</a>
+        </div>
+ -->

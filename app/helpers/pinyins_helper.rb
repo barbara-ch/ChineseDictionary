@@ -1,0 +1,2 @@
+module PinyinsHelper
+end

@@ -1,0 +1,2 @@
+$ ->
+  $('#elem').popover('click')

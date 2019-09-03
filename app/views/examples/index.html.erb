@@ -1,0 +1,36 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Lista przykładów</h1>
+<div class="add-button">
+  <%= link_to 'Nowy przykład', new_example_path %>
+</div>
+<table>
+  <thead>
+    <tr>
+      <th colspan="6"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @examples.each do |example| %>
+      <tr>
+        <td>Chiński</td>
+        <td><%= example.chinese %></td>
+        <td rowspan="3"><%= link_to '<i class="fa fa fa-eye" aria-hidden="true"></i>'.html_safe, example %></td>
+        <td rowspan="3"><%= link_to '<i class="fa fa-pencil-square-o" aria-hidden="true"></i>'.html_safe, edit_example_path(example) %></td>
+        <td rowspan="3"><%= link_to '<i class="fa fa-trash-o" aria-hidden="true"></i>'.html_safe, example, method: :delete, data: { confirm: 'Czy na pewno chcesz usunąć przykład?' } %></td>
+      </tr>
+      <tr>
+        <td>Zapis Pinyin</td>        
+        <td><%= example.spelling %></td>
+      <tr>
+        <td>Tłumaczenie polskie</td>
+        <td><%= example.polish %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+

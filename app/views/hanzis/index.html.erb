@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<% if user_signed_in? %>
+  <div class="form-button">
+    <%= link_to 'Dodaj nowy znak Hanzi', new_hanzi_path %>
+  </div>
+<% end %>
+
+<h1>Lista znaków Hanzis</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Znak Hanzi</th>
+      <th>Ilość kresek</th>
+      <th>Opis</th>
+      <th>Znak tradycyjny</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @hanzis.each do |hanzi| %>
+      <tr>
+        <td><%= hanzi.character %></td>
+        <td><%= hanzi.stroke %></td>
+        <td><%= hanzi.description %><br><%= image_tag hanzi.avatar_url %></td>
+        <td><%= hanzi.traditional %></td>
+        <% if user_signed_in? %>
+          <td><%= link_to '<i class="fa fa fa-eye" aria-hidden="true"></i>'.html_safe, hanzi %></td>
+          <td><%= link_to '<i class="fa fa-pencil-square-o" aria-hidden="true"></i>'.html_safe, edit_hanzi_path(hanzi) %></td>
+          <td><%= link_to '<i class="fa fa-trash-o" aria-hidden="true"></i>'.html_safe, hanzi, method: :delete, data: { confirm: 'Czy na pewno chcesz usunąć znak i wszystkie powiązane z nim słowa?' } %></td>
+        <% end %>        
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<% if user_signed_in? %>
+  <div class="form-button">
+    <%= link_to 'Dodaj nowy znak Hanzi', new_hanzi_path %>
+  </div>
+<% end %>

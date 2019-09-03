@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  hanzi_id: 1
+  pinyin_id: 1
+  trans_id: 1
+  example_id: 1
+  pos_id: 1
+
+two:
+  hanzi_id: 1
+  pinyin_id: 1
+  trans_id: 1
+  example_id: 1
+  pos_id: 1

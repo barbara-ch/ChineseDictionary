@@ -1,0 +1,12 @@
+<fieldset>
+  <%= f.label "Hanzi" %><br>
+  <%= f.text_area :chinese %><br>
+  <%= f.label "Zapis pinyin" %><br>
+  <%= f.text_area :spelling %><br>
+  <%= f.label "Tłumaczenie" %><br>
+  <%= f.text_area :polish %>
+  <%= f.hidden_field :_destroy %>
+  <div class="form-button">
+  	<%= link_to "Usuń przykład", '#', class: "remove_fields" %>
+  </div>
+</fieldset>

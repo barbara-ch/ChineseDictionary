@@ -1,0 +1,14 @@
+<% @words.each do |word| %>
+      <tr>
+        <td>
+          <div><% word.hanzis.each do |hanzi| %>
+              <%= link_to hanzi.character, hanzi %>
+            <% end %></div>
+          <div><% word.pinyins.each do |pinyin| %>
+              <span class="tone-<%= pinyin.tone %>"><%= pinyin.syllable %></span>
+            <% end %></div>
+        </td>
+        <td><%= link_to word.content, word %></td>
+        <td><%= Partofspeach.find(word.pos_id).name %></td>
+      </tr>
+<% end %>

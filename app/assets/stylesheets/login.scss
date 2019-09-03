@@ -1,0 +1,337 @@
+.clear{clear:both;}/* clear float */
+.center{margin-left: 65px; margin-top: 30px;}
+img{max-width:100%;}
+/*end reset*/
+/*--header start here--*/
+body#session{
+   font-family: 'Montserrat' !important, sans-serif;
+   // font-size: 100%;
+   background: url("bbb.jpg") no-repeat;
+   background-size: cover;
+   height: auto;
+
+.login-form{
+    
+    padding:100px 0px 50px 0px;
+
+}
+h1{
+    font-family: 'Montserrat', sans-serif;
+    font-size:2em;
+    color:#fff;
+    font-weight:800;
+    text-transform:uppercase;
+    text-align:center;
+    margin-bottom:2em;
+}
+h2{
+    font-family: 'Montserrat', sans-serif;
+    font-size:1em;
+    color:#fff;
+    font-weight:600;
+    text-align:center;
+    margin-bottom:2em;
+}
+.logo {
+    width: 130px;
+    height: 130px;
+    display: block;
+    margin: 0 auto 3.5em;
+    position: relative;
+}
+
+.alert{
+    color: #fff;
+    font-weight: 600;
+    background: rgba(255, 255, 255, 0.32); 
+    border: 3px solid #CF1D40;
+    border-radius: 0;
+    padding: 0;
+}
+.alert i{
+    color: #fff;
+    background: #CF1D40;
+    width: 53px;
+    height: 53px;
+    padding: 13px 0 0 13px;
+    float: left;
+    margin-right: 20px;
+}
+.alert p{
+    height: 53px;
+    padding: 16px;
+}
+.login-top{
+    width: 460px;
+    display: block;
+    margin: 0 auto;
+}
+.login-ic {
+    background: rgba(255, 255, 255, 0.32); 
+    margin-bottom:1.5em;
+    padding: 8px;
+    display: flex;
+    align-items: center;   
+}
+.login-ic i {
+    background: url("m.png")no-repeat 6px 6px;
+    width: 38px;
+    height: 38px;
+    float: left;
+    /*-- agileits --*/
+    display: inline-block;
+}
+.login-ic i.icon {
+    // background: url("l.png")no-repeat 6px 6px;  
+    color: #fff;
+    background: none;
+    padding-left: 6px;
+}
+.login-ic i.email {
+    padding-top: 4px;
+}
+.login-ic input[type="email"],.login-ic  input[type="password"] {
+    float: left;
+    background: none;
+    outline: none;
+    font-size: 15px;
+    font-weight: 400;
+    color: #fff;
+    padding: 10px 16px;
+    border: none;
+    border-left: 1px solid #fff;
+    width: 82%;
+    display: inline-block;
+    margin-left: 7px;
+}
+&::-webkit-input-placeholder {
+     color: #fff;
+     text-align: left;
+  }
+
+  &:-moz-placeholder { /* Firefox 18- */
+     color: #fff;
+     text-align: left;
+  }
+
+  &::-moz-placeholder {  /* Firefox 19+ */
+     color: #fff;
+     text-align: left;
+  }
+
+  &:-ms-input-placeholder {
+     color: #fff;
+     text-align: left;
+  }
+.remeber-me { 
+    margin-bottom:1.5em;
+    background: none;
+    outline: none;
+    padding: 10px 16px;
+    border: none;
+    width: 82%;
+    display: inline-block;
+    margin-left: 7px;
+}
+::-webkit-input-placeholder {
+   color: #fff;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+   color: #fff;  
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+   color: #fff;  
+}
+
+:-ms-input-placeholder {  
+   color: #fff; 
+}
+/*--checkbox--*/
+.login-top .remeber-me input[type="checkbox"] {
+    display: none;
+}
+.login-top .remeber-me input[type="checkbox"]+label {
+    position: relative;
+    padding-left: 2em;
+    padding-top: 0.2em; 
+    border: none;
+    outline: none;
+    font-size: 1.2em;
+    color: #B9B0A9;
+    font-weight: 400;
+    cursor: pointer;
+}
+.login-top .remeber-me input[type="checkbox"]+label span:first-child {
+    width: 14px;
+    height: 14px;
+    border: 2px solid #B9B0A9;
+    background: rgba(255, 255, 255, 0.32);
+    position: absolute;
+    left: 0;
+    top: 7px;
+}
+.login-top .remeber-me input[type="checkbox"]:checked+label span:first-child:before {
+    content: "";
+    background: url("tick.png")no-repeat;
+    position: absolute;
+    // left: 2px;
+    // top: 2px;
+    font-size: 10px;
+    width: 10px;
+    height: 10px;
+}
+/*--//checkbox--*/
+.login-top a {
+    padding-left: 7em;
+    padding-top: 0.2em; 
+    border: none;
+    outline: none;
+    font-size: 1em;
+    color: #B9B0A9;
+    font-weight: 400;
+    cursor: pointer;
+    text-decoration: none;
+}
+.login-top a:hover {
+    color: #fff;
+}
+.login-button {
+    text-align: center;
+}
+.login-button input[type="submit"] {
+    font-size: 15px;
+    font-weight: 700;
+    color: #fff;
+    padding: 13px 0;
+    background: #CF1D40;
+    display: inline-block;
+    width: 100%;
+    outline:none;
+    border:3px solid #CF1D40;
+    cursor:pointer;
+    text-transform:uppercase;
+}
+.login-button input[type="submit"]:hover{
+    transition: all 0.3s ease;
+     -webkit-transition: all 0.3s ease;
+     -moz-transition: all 0.3s ease;
+     -o-transition: all 0.3s ease;
+     border:3px solid #CF1D40;
+     color: #CF1D40;
+     background: #fff;
+}
+/*-- profile_2 --*/
+footer{
+    color:#fff;
+    font-size:1em;
+    text-align:center;
+    margin-top: 2em;
+    border: none;
+    padding-top: 0;
+}
+
+}
+
+
+/*--meadia quiries start here--*/
+@media (max-width:1024px){
+footer {
+    margin-top: 3.5em;
+}
+.login-form {
+    padding: 60px 0px 40px 0px;
+}
+}
+
+@media (max-width:768px){
+body {
+    min-height: 929px;
+}
+}
+@media (max-width:768px){
+body {
+    min-height: auto;
+}
+}
+@media (max-width:600px){
+.login-top {
+    width: 425px;
+}
+.login-ic input[type="text"], .login-ic input[type="password"] {
+    width: 79%;
+}
+}
+@media (max-width:480px){
+footer {
+    font-size: 0.9em;
+    padding:0 0.5em;
+    line-height: 1.8em;
+}
+}
+@media (max-width:450px){
+.login-top {
+    width: 360px;
+}
+.login-ic input[type="text"], .login-ic input[type="password"] {
+    width: 76%;
+    /*-- agileits --*/
+}
+.logo {
+    width: 90px;
+    height:90px;
+    margin: 0 auto 2.5em;
+}
+.login-form h1 {
+    margin-bottom: 1em;
+    font-size: 1.7em;
+}
+footer {
+
+    margin-top: 3em;
+}
+.login-form {
+    padding: 80px 0px 45px 0px;
+}
+.login-ic {
+    margin-bottom: 1em;
+    padding: 3px;
+}
+.login-button input[type="submit"] {
+    padding: 10px 0;
+}
+footer {
+    font-size: 0.8em;
+}
+body {
+    min-height: 672px;
+}
+}
+@media (max-width:384px){
+.login-top {
+    width: 340px;
+}
+.login-ic input[type="text"], .login-ic input[type="password"] {
+    width: 75%;
+}
+body {
+    min-height: 600px;
+}
+}
+@media(max-width:320px){
+.login-top {
+    width: 280px;
+}
+.login-ic input[type="text"], .login-ic input[type="password"] {
+    width: 70%;
+}
+.login-form {
+    padding: 50px 0px 45px 0px;
+}
+body {
+    min-height: 540px;
+}
+}
+
+/*--media quiries end here--*/

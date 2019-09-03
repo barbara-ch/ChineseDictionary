@@ -1,0 +1,68 @@
+<%= form_for(@word) do |f| %>
+  <% if @word.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@word.errors.count, "error") %> prohibited this word from being saved:</h2>
+
+      <ul>
+      <% @word.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+    
+    <h3>Hanzi:</h3>
+
+    <%= f.fields_for :hanzis, Hanzi.new do |field| %>
+        <%= field.label "Znak" %>
+        <%= field.text_field :character %><br><br>
+        <%= field.label "Znak tradycyjny" %>
+        <%= field.text_field :traditional %><br>
+        <%= field.label "Kreski" %>
+        <%= field.number_field :stroke, min: 1, max: 64 %><br>
+        <%= field.label "Opis" %>
+        <%= field.text_area :description %><br>
+    <% end %>
+
+    <h3>Pinyin:</h3>
+
+    <%= f.fields_for :pinyins, Pinyin.new do |field| %>
+        <%= field.label :syllable %><br>
+        <%= field.text_field :syllable %><br>
+        <%= field.label :alternative %><br>
+        <%= field.text_field :alternative %><br>
+        <%= field.label :tone %><br>
+        <%= field.number_field :tone, min: 0, max: 4 %><br>
+    <% end %>
+
+    <h3>Tłumaczenie:</h3>
+
+  <div class="field">
+    <%= f.label :content %><br>
+    <%= f.text_field :content %>
+  </div>
+
+
+    <h3>Część mowy:</h3>
+
+    <%= f.fields_for :partofspeaches do |field| %>
+        <%= field.label "Część mowy" %>
+        <%= field.collection_select(:pos_id, Partofspeach.all, :id, :short) %>
+    <% end %>
+
+    <h3>Przykład:</h3>
+
+    <%= f.fields_for :examples, Example.new do |field| %>
+        <%= field.label "Hanzi" %>
+        <%= field.text_area :chinese %><br>
+        <%= field.label "Zapis pinyin" %>
+        <%= field.text_area :spelling %><br>
+        <%= field.label "Tłumaczenie" %>
+        <%= field.text_area :polish %>
+    <% end %>
+
+  </div>
+    <%= f.submit %>
+  </div>
+<% end %>

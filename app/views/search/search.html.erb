@@ -1,0 +1,10 @@
+<p id="notice"><%= notice %></p>
+
+ <%= form_tag '/11_chudzik/dict/search', method: :get, :html => {:class => "search input"} do %>
+	<div class="search">
+		<%= text_field_tag :q, nil, :class => "search input", :placeholder => "Słownik polsko-chiński, chińsko-polski", :type => "search"  %>
+		<button class="search-button">
+		  	<i class="fa fa-search" aria-hidden="true"></i>
+		</button>
+	</div>
+<% end %>

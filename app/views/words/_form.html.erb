@@ -1,0 +1,54 @@
+<%= form_for(@word) do |f| %>
+  <% if @word.errors.any? %>
+    <div id="error_explanation">
+      <h3><%= pluralize(@word.errors.count, "błąd") %> uniemożliwiają zapis:</h3>
+
+      <ul>
+      <% @word.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+    
+  <h3>Hanzi:</h3>
+  <%= select_tag("word[hanzi_ids][]", options_from_collection_for_select(Hanzi.all, :id, :character), { :include_blank => true, :selected => (@word.hanzis.map{|x| x.id} ), class: 'chosen-select', multiple: true, data: { placeholder: "Dodaj znak Hanzi" }}) %>
+
+  <div class="form-button">
+    <%= link_to "Dodaj nowy znak Hanzi do bazy", new_hanzi_path(@word), remote: true %>
+  </div>
+
+
+  <h3>Pinyin:</h3>
+    <%= select_tag("word[pinyin_ids][]", options_from_collection_for_select(Pinyin.all, :id, :syllable), class: 'chosen-select', multiple: true, data: { placeholder: "Dodaj Pinyin" }) %>
+  <div class="form-button">
+    <%= link_to "Dodaj nowy Pinyin do bazy", new_pinyin_path(@word), remote: true %>
+  </div>
+
+  <h3>Tłumaczenie:</h3>
+
+  <div class="ffield">
+    <%= f.text_field :content %>
+  </div>
+
+
+  <h3>Część mowy:</h3>
+  <div class="form-select">
+    <%= f.collection_select(:pos_id, Partofspeach.all, :id, :name) %>
+  </div>
+
+  <h3>Przykład:</h3>
+
+  <%= f.fields_for :examples, @word.examples do |builder| %>
+      <%= render 'example_fields', f: builder %>
+  <% end %>
+  <div class="form-button">
+    <%= link_to_add_fields "Dodaj kolejny przykład", f, :examples %>
+  </div>
+  
+  <div class="add-button">
+    <%= f.submit "Dodaj" %>
+  </div>
+<% end %>
+<%= render "modal" %>

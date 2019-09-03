@@ -1,0 +1,5 @@
+<% if @hanzi.errors.any? %>
+  $("#modal_content").html("<%= j (render 'form', remote: true) %>");
+  <%else%>
+  $("#myModal").modal("hide");
+<% end %>

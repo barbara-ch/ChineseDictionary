@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dict</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %> <!--na serwerze zmienić default na application bo windows jest głupi i nie ogarnia, w js też-->
+	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+	<%= csrf_meta_tags %>
+  <!-- favicons
+	================================================== -->
+	<%= favicon_link_tag 'favicon.ico' %>
+
+   <!-- Google Fonts
+	================================================== -->
+	<link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+	<link href="https://fonts.googleapis.com/css?family=Alegreya+Sans+SC|Roboto" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Julius+Sans+One|Lato" rel="stylesheet"> 
+
+</head>
+<body>
+<!-- header 
+   ================================================== -->
+   <header>
+
+   	<div class="row">
+
+   		<div class="logo">
+	         <%= link_to "dict", root_path %>
+	     </div>
+
+	   	<nav id="main-nav-wrap">
+	   		<input type="checkbox" id="css-toggle-menu" name="css-toggle-menu">
+				<ul class="main-navigation">
+					<!--  -->
+					<li class="<%= 'current' if params[:controller] == 'hanzis' %>">
+						<%= link_to "Znaki", hanzis_path %>
+					</li>
+					<li class="<%= 'current' if current_page?(classifiers_words_path) %>">
+						<%= link_to "Klasyfikatory", classifiers_words_path %>
+					</li>
+					<% if user_signed_in? %>
+						<li class="<%= 'current' if current_page?(words_path) %>">
+							<%= link_to "Słowa", words_path %>
+						</li>
+						<li class="<%= 'current' if current_page?(pinyins_path) %>">
+						<%= link_to "Pinyin", pinyins_path %>
+					</li>
+						<li>
+						 	<%= link_to('Wyloguj', destroy_user_session_path, :method => :delete, :class => "highlight with-sep") %>        
+						</li>
+					<% end %>								
+				</ul>
+			<label for="css-toggle-menu" id="css-toggle-menu"></label> 
+		</nav>
+   		
+   	</div>   	
+   	
+   </header> <!-- /header -->
+   <div id="container">
+   	<div class="content">
+	   <%= yield %>
+	</div>
+	<footer class="footer">© EPI 2016 | Barbara Chudzik <div>Z wykorzystaniem Commons: Strokes Order Project</div><br /><%=link_to "O serwisie", "#", id: :elem, rel: :popover, data:{title: "O serwisie", content: "Autorem niniejszego serwisu jest Barbara Chudzik. Serwis ten stanowi integralną część pracy magisterskiej (kierunek: Elektroniczne Przetwarzanie Informacji), przygotowanej pod kierunkiem prof. dr. hab. Mariusza Flasińskiego na Wydziale Zarządzania i Komunikacji Społecznej Uniwersytetu Jagiellońskiego.", trigger: "hover"} %></footer>
+   </div>
+   
+
+
+</body>
+</html>

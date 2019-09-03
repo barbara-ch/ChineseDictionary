@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<% if user_signed_in? %>
+  <div class="form-button">
+    <%= link_to 'Dodaj nowe słowo', new_word_path %>
+  </div>
+<% end %>
+
+<h1>Słowa</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Hanzi</th>
+      <th>Pinyin</th>
+      <th></th>
+      <th></th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @words.each do |word| %>
+      <tr>
+        <td><% word.hanzis.each do |hanzi| %>
+              <%= link_to hanzi.character, hanzi %>
+            <% end %></td>
+        <td><% word.pinyins.each do |pinyin| %>
+              <span class="tone-<%= pinyin.tone %>"><%= pinyin.syllable %></span>
+            <% end %>
+        </td>
+        <td><%= word.content %></td>
+        <td><%= Partofspeach.find(word.pos_id).name %></td>
+        <% if user_signed_in? %>
+          <td><%= link_to '<i class="fa fa fa-eye" aria-hidden="true"></i>'.html_safe, word %></td>
+          <td><%= link_to '<i class="fa fa-pencil-square-o" aria-hidden="true"></i>'.html_safe, edit_word_path(word) %></td>
+          <td><%= link_to '<i class="fa fa-trash-o" aria-hidden="true"></i>'.html_safe, word, method: :delete, data: { confirm: 'Czy na pewno chcesz usunąć słowo?' } %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<% if user_signed_in? %>
+  <div class="form-button">
+    <%= link_to 'Dodaj nowe słowo', new_word_path %>
+  </div>
+<% end %>

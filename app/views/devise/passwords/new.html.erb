@@ -1,0 +1,16 @@
+<h2>Zapomniałeś hasła?</h2>
+
+<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+  <%= devise_error_messages! %>
+
+  <div class="field login-ic">
+    <i class="icon email fa fa-2x fa-envelope"></i>
+    <%= f.email_field :email, placeholder: "Email", autofocus: true, :required => 'required' %>
+    <div class="clear"> </div>
+  </div>
+
+  <div class="login-button">
+    <%= f.submit "Zresetuj hasło" %>
+  </div>
+<% end %>
+
